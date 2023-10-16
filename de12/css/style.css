@@ -29,6 +29,8 @@ logotohome img{
 
 /* ========== common ========== */
 html, body {
+
+  
    
     letter-spacing: 2px; /* Adjust the value to your preference */
 }
@@ -56,4 +58,5 @@ span.blackback{
     background: #393939;
     color: #efefef;
 }
+
 
