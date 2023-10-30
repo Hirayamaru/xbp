@@ -4,11 +4,11 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
 /* フォントを指定したいところで */
 
-div.gradient{
-    width: 300px;
-    height: 150px;
-    background: linear-gradient(#B2EBF2,#00BCD4);
-}
+.original-gradient {
+    height: 200px;
+    width: 90%;
+    background-image: conic-gradient(from 20deg, rgba(223, 168, 168, 1) 18deg, rgba(193, 199, 197, 1) 68deg, rgba(108, 199, 221, 1) 151deg, rgba(177, 151, 223, 1) 263deg, rgba(122, 197, 216, 1) 295deg, rgba(223, 168, 168, 1) 360deg);
+  }
 
 
 logo img{
@@ -29,10 +29,12 @@ logotohome img{
 
 /* ========== common ========== */
 html, body {
-
-  
-   
-    letter-spacing: 2px; /* Adjust the value to your preference */
+    ont-size: 16px;
+	font-family: sans-serif;
+	color: #393939;
+    margin-left: 15px;
+    margin-bottom: 40px;
+	background: #efefef;
 }
 	
 
@@ -53,10 +55,10 @@ div{
 p{
     margin-left: 3em;
 }
-span.blackback{
-    text-indent: 3em;
-    background: #393939;
-    color: #efefef;
-}
+.original-gradient {
+    height: 200px;
+    width: 90%;
+    background-image: conic-gradient(from 20deg, rgba(223, 168, 168, 1) 18deg, rgba(193, 199, 197, 1) 68deg, rgba(108, 199, 221, 1) 151deg, rgba(177, 151, 223, 1) 263deg, rgba(122, 197, 216, 1) 295deg, rgba(223, 168, 168, 1) 360deg);
+  }
 
 
