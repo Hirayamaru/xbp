@@ -157,16 +157,6 @@ float:left;
 margin:3px 0 0 0;
 }
 
-.readmore{clear:both;}
-
-.readmore a{
-padding:3px 5px;
-border-radius:3px;
-color:#fff;
-background:#999;
-}
-
-.readmore a:hover{background:#ccc;}
 
 
 /* フッター内のグリッド(3カラム) */
