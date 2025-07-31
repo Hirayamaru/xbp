@@ -738,3 +738,43 @@ width:98%;
         margin: 5px 0;
     }
 }
+
+/* style.css の該当箇所を修正 */
+
+/* 全体
+------------------------------------------------------------*/
+#wrapper{
+    margin:20px auto 0;
+    padding:0 1%;
+    width:98%;
+    position:relative; /* ★★★ ここを修正/追加 ★★★ */
+    }
+    
+    /* ... 既存のCSSコード ... */
+    
+    
+    /* Animateのcanvasコンテナのスタイルを追記 */
+    /* style.css の末尾など、どこでも良いので追加してください */
+    #animation_container_custom { /* IDをカスタム */
+        position: absolute; /* 親要素（#wrapper）に対して絶対配置 */
+        overflow: hidden; /* はみ出した部分を隠す */
+        z-index: 2; /* 既存の画像の上に表示されるように */
+        pointer-events: none; /* ← クリックイベントを下のHTMLに通すために重要 */
+        /* width, height, top, left はJavaScriptで動的に設定されるのでCSSでは初期値を指定しない */
+    }
+    
+    #canvas_custom { /* IDをカスタム */
+        display: block;
+        /* width, height はJavaScriptで動的に設定されるのでCSSでは初期値を指定しない */
+        background-color: rgba(255, 255, 255, 0.00) !important; /* 背景を完全に透明に */
+    }
+    
+    /* レスポンシブ対応の調整 (既存の @media only screen and (max-width:959px) に追加) */
+    @media only screen and (max-width:959px){
+        /* ... 既存のメディアクエリのスタイル ... */
+    
+        #animation_container_custom {
+            /* スマホ/タブレットでは幅をJavaScriptで調整 */
+            /* heightはauto; を維持し、JSでスケーリング */
+        }
+    }
