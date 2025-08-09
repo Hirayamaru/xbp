@@ -681,3 +681,51 @@ width:98%;
 
 #sub .grid h3{padding:10px 5px;}
 }
+
+/* overlay link
+------------------------------------------------------------*/
+.overlay-link {
+    position: absolute;
+    top: 0; bottom: 0;
+    background: rgba(0,0,0,0);
+    z-index: 10;
+    pointer-events: auto;
+}
+
+/* style.css の既存のコードの最後に追記 */
+
+/* --- Animate用 追加スタイル --- */
+
+/* #wrapper のposition:relativeは既に定義されているので修正不要 */
+/* .gridWrapper のposition:relativeも定義されているので修正不要 */
+
+
+/* Animateのcanvasコンテナのスタイル */
+#animation_container_custom {
+  position: absolute; /* 親要素（.gridWrapper）に対して絶対配置 */
+  top: 0; /* .gridWrapperの左上を基準に0px */
+  left: 0; /* .gridWrapperの左上を基準に0px */
+  width: 100%; /* .gridWrapperの幅に合わせる */
+  height: 100%; /* .gridWrapperの高さに合わせる */
+  overflow: hidden; /* はみ出した部分を隠す */
+  z-index: 2; /* 既存の画像の上に表示されるように (必要に応じて調整) */
+  pointer-events: none; /* ← クリックイベントを下のHTMLに通すために重要 */
+}
+
+#canvas_custom {
+  display: block;
+  width: 100%; /* 親コンテナの幅に合わせる */
+  height: auto; /* アスペクト比を維持 */
+  background-color: rgba(255, 255, 255, 0.00) !important; /* 背景を完全に透明に */
+}
+
+/* レスポンシブ対応の調整 (既存の @media only screen and (max-width:959px) に追加) */
+@media only screen and (max-width:959px){
+  /* 既存のメディアクエリのスタイルは変更しません */
+
+  #animation_container_custom {
+      width: 100%; /* スマホ/タブレットでも親要素の幅に合わせる */
+      height: 100%; /* 親要素の高さに合わせる */
+      /* top, left は JavaScript で計算されるので、CSSでは特に設定不要 */
+  }
+}

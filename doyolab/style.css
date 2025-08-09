@@ -37,7 +37,7 @@ a:active, a:focus{outline:0;}
 margin:20px auto 0;
 padding:0 1%;
 width:98%;
-position:relative;
+position:relative; /* ★★★ 修正済み ★★★ */
 }
 
 .inner{
@@ -140,6 +140,7 @@ color:#666;
 padding-bottom:20px;
 clear:both;
 overflow:hidden;
+position:relative; /* ★★★ 修正済み：Animateキャンバスの基準になります ★★★ */
 }
 
 .grid h3{
@@ -433,6 +434,7 @@ border-collapse:separate;
 border-spacing:20px;
 margin-left:-20px;
 width:980px;
+/* position:relative; はすでにグローバル設定済み */
 }
 
 /* グリッド共通 ベース:トップページ4カラム */
@@ -739,42 +741,32 @@ width:98%;
     }
 }
 
-/* style.css の該当箇所を修正 */
+/* Animateのcanvasコンテナのスタイルを追記 */
+#animation_container_custom { /* IDをカスタム */
+    position: absolute; /* 親要素（.gridWrapper）に対して絶対配置 */
+    top: 0; /* .gridWrapperの左上を基準に0px */
+    left: 0; /* .gridWrapperの左上を基準に0px */
+    width: 100%; /* .gridWrapperの幅に合わせる */
+    height: 100%; /* .gridWrapperの高さに合わせる */
+    overflow: hidden; /* はみ出した部分を隠す */
+    z-index: 2; /* 既存の画像の上に表示されるように (必要に応じて調整) */
+    pointer-events: none; /* ← クリックイベントを下のHTMLに通すために重要 */
+}
 
-/* 全体
-------------------------------------------------------------*/
-#wrapper{
-    margin:20px auto 0;
-    padding:0 1%;
-    width:98%;
-    position:relative; /* ★★★ ここを修正/追加 ★★★ */
+#canvas_custom { /* IDをカスタム */
+    display: block;
+    width: 100%; /* 親コンテナの幅に合わせる */
+    height: auto; /* アスペクト比を維持 */
+    background-color: rgba(255, 255, 255, 0.00) !important; /* 背景を完全に透明に */
+}
+
+/* レスポンシブ対応の調整 (既存の @media only screen and (max-width:959px) に追加) */
+@media only screen and (max-width:959px){
+    /* ... 既存のメディアクエリのスタイル ... */
+
+    #animation_container_custom {
+        width: 100%; /* スマホ/タブレットでも親要素の幅に合わせる */
+        height: 100%; /* 親要素の高さに合わせる */
+        /* top, left は JavaScript で計算されるので、CSSでは特に設定不要 */
     }
-    
-    /* ... 既存のCSSコード ... */
-    
-    
-    /* Animateのcanvasコンテナのスタイルを追記 */
-    /* style.css の末尾など、どこでも良いので追加してください */
-    #animation_container_custom { /* IDをカスタム */
-        position: absolute; /* 親要素（#wrapper）に対して絶対配置 */
-        overflow: hidden; /* はみ出した部分を隠す */
-        z-index: 2; /* 既存の画像の上に表示されるように */
-        pointer-events: none; /* ← クリックイベントを下のHTMLに通すために重要 */
-        /* width, height, top, left はJavaScriptで動的に設定されるのでCSSでは初期値を指定しない */
-    }
-    
-    #canvas_custom { /* IDをカスタム */
-        display: block;
-        /* width, height はJavaScriptで動的に設定されるのでCSSでは初期値を指定しない */
-        background-color: rgba(255, 255, 255, 0.00) !important; /* 背景を完全に透明に */
-    }
-    
-    /* レスポンシブ対応の調整 (既存の @media only screen and (max-width:959px) に追加) */
-    @media only screen and (max-width:959px){
-        /* ... 既存のメディアクエリのスタイル ... */
-    
-        #animation_container_custom {
-            /* スマホ/タブレットでは幅をJavaScriptで調整 */
-            /* heightはauto; を維持し、JSでスケーリング */
-        }
-    }
+}
