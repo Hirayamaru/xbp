@@ -770,3 +770,8 @@ width:98%;
         /* top, left は JavaScript で計算されるので、CSSでは特に設定不要 */
     }
 }
+
+html {
+    scroll-behavior: smooth;
+  }
+  

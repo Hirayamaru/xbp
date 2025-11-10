@@ -157,7 +157,10 @@ float:left;
 margin:3px 0 0 0;
 }
 
-
+/* 各ボックス内のh3を中央揃え */
+.grid .box h3 {
+  text-align: center;
+}
 
 /* フッター内のグリッド(3カラム) */
 #footer .grid{
@@ -442,16 +445,16 @@ nav div.panel{display:block !important;}
 a#menu{display:none;}
 
 #topnav{
-float:right;
-margin-top:-5px;
-
+  float: right;
+  margin-top: -5px;
+  margin-right: 40; /* ← この行を追加 */
 }
 
 #topnav li{
-float:left;
-margin:13px 5px 0;
-text-align:center;
-position:relative;
+  float: left;
+  margin: 13px 5px 0;  /* ← 左右のマージンを調整（5pxに統一） */
+  text-align: center;
+  position: relative;
 }
 
 #topnav a{
@@ -729,3 +732,130 @@ width:98%;
       /* top, left は JavaScript で計算されるので、CSSでは特に設定不要 */
   }
 }
+
+/* ===== BLOG SECTION ===== */
+
+#blog {
+  background-color: #fff;
+  padding: 80px 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.blog-title {
+  font-size: 2em;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.blog-title::after {
+  content: "";
+  width: 60px;
+  height: 2px;
+  background: #000;
+  display: block;
+  margin: 15px auto 0;
+}
+
+.post {
+  max-width: 800px;
+  margin: 0 auto 80px;
+  border: 1px solid #e5e5e5;
+  border-radius: 0; /* ← 角をなくす（四角） */
+  padding: 30px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+
+.post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+
+.post-date {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.post-title {
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  border-left: 4px solid #000;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.post-img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.post-excerpt {
+  line-height: 1.8;
+  color: #333;
+  font-size: 1em;
+}
+
+.post-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #aaa;
+  transition: all 0.3s ease;
+}
+
+.post-link:hover {
+  color: #007acc;
+  border-bottom: 1px solid #007acc;
+}
+
+/* ===== fade-in animation ===== */
+.fadein {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.fadein.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ナビゲーションメニュー中央寄せ */
+#topnav {
+  text-align: center;
+  padding-left: 0;
+}
+
+#topnav li {
+  display: inline-block;
+  float: none; /* float指定があれば解除 */
+  margin: 0 10px; /* 必要に応じて調整 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Flexbox for Post Section ===== */
+.post-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px; /* 画像と文章の間隔。お好みで調整 */
+}
+
+.post-flex img {
+  flex-shrink: 0;
+}
+
+.post-content {
+  flex: 1;
+}
+
