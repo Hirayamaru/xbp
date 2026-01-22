@@ -1,0 +1,202 @@
+/* ============================================
+   PROJECT DETAIL PAGE STYLES（角ばったデザイン）
+   ============================================ */
+
+/* ヒーローセクション */
+.project-hero {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    border: 3px solid #000;
+}
+
+.project-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.hero-content .subtitle {
+    font-size: 1.2rem;
+    opacity: 0.95;
+}
+
+/* パンくずリスト */
+.breadcrumb {
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.breadcrumb a {
+    color: #333;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+/* プロジェクト情報 */
+.project-info {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 50px;
+    padding: 30px;
+    background: #fff;
+    border: 2px solid #333;
+}
+
+.info-item h3 {
+    font-size: 0.85rem;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.info-item p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+}
+
+/* コンテンツセクション */
+.content-section {
+    max-width: 1000px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #333;
+    border-left: 5px solid #000;
+    padding-left: 15px;
+}
+
+.content-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* 画像ギャラリー（角ばった） */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border: 2px solid #333;
+    box-shadow: 4px 4px 0 #000;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* 成果物セクション */
+.outcome-box {
+    background: #333;
+    color: white;
+    padding: 40px;
+    border: 2px solid #000;
+    margin: 50px 0;
+}
+
+.outcome-box h2 {
+    border-left: 5px solid white;
+    color: white;
+}
+
+.outcome-box p {
+    color: white;
+    opacity: 0.95;
+}
+
+/* 戻るボタン */
+.back-button {
+    display: inline-block;
+    margin: 40px 20px;
+    padding: 12px 30px;
+    background: #333;
+    color: white;
+    text-decoration: none;
+    border: 2px solid #000;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: #000;
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 #333;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .content-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .image-gallery {
+        grid-template-columns: 1fr;
+    }
+}
