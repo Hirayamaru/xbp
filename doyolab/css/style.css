@@ -859,3 +859,194 @@ html {
   flex: 1;
 }
 
+/* ===== BLOG SECTION レスポンシブ対応 ===== */
+
+/* 既存のスタイルはそのまま */
+#blog {
+  background-color: #fff;
+  padding: 80px 20px;
+  border-top: 1px solid #e0e0e0;
+}
+
+.blog-title {
+  font-size: 2em;
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.blog-title::after {
+  content: "";
+  width: 60px;
+  height: 2px;
+  background: #000;
+  display: block;
+  margin: 15px auto 0;
+}
+
+.post {
+  max-width: 800px;
+  margin: 0 auto 80px;
+  border: 1px solid #e5e5e5;
+  border-radius: 0;
+  padding: 30px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.post:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+
+.post-date {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.post-title {
+  font-size: 1.4em;
+  margin-bottom: 15px;
+  border-left: 4px solid #000;
+  padding-left: 10px;
+  font-weight: 600;
+}
+
+.post-img {
+  width: 100%;
+  border-radius: 10px;
+  margin: 15px 0;
+}
+
+.post-excerpt {
+  line-height: 1.8;
+  color: #333;
+  font-size: 1em;
+}
+
+.post-link {
+  display: inline-block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid #aaa;
+  transition: all 0.3s ease;
+}
+
+.post-link:hover {
+  color: #007acc;
+  border-bottom: 1px solid #007acc;
+}
+
+/* ===== Flexbox for Post Section ===== */
+.post-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.post-flex img {
+  flex-shrink: 0;
+  width: 300px;
+  height: 220px;
+  object-fit: cover;
+}
+
+.post-content {
+  flex: 1;
+}
+
+/* ===== タブレット対応（768px以下） ===== */
+@media only screen and (max-width: 768px) {
+  #blog {
+    padding: 60px 15px;
+  }
+
+  .blog-title {
+    font-size: 1.6em;
+    margin-bottom: 40px;
+  }
+
+  .post {
+    padding: 25px 20px;
+    margin-bottom: 50px;
+  }
+
+  .post-title {
+    font-size: 1.2em;
+  }
+
+  /* 画像を少し小さく */
+  .post-flex img {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+/* ===== スマホ対応（640px以下） ===== */
+@media only screen and (max-width: 640px) {
+  #blog {
+    padding: 40px 10px;
+  }
+
+  .blog-title {
+    font-size: 1.4em;
+    margin-bottom: 30px;
+  }
+
+  .post {
+    padding: 20px 15px;
+    margin-bottom: 40px;
+  }
+
+  /* 縦並びに変更 */
+  .post-flex {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* 画像を全幅に */
+  .post-flex img {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+  }
+
+  .post-title {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+  }
+
+  .post-excerpt {
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+
+  .post-date {
+    font-size: 0.85em;
+  }
+}
+
+/* ===== 超小型スマホ対応（480px以下） ===== */
+@media only screen and (max-width: 480px) {
+  .blog-title {
+    font-size: 1.2em;
+    letter-spacing: 1px;
+  }
+
+  .post {
+    padding: 15px 12px;
+  }
+
+  .post-title {
+    font-size: 1em;
+  }
+
+  .post-excerpt {
+    font-size: 0.9em;
+  }
+}
