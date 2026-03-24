@@ -28,6 +28,15 @@
     object-position: center;
 }
 
+/* このページのみ：画像を底辺に合わせて表示 */
+.project-hero-custom.align-bottom-image {
+    height: 70vh; /* デフォルトの45vhから70vhに増加 */
+}
+
+.project-hero-custom.align-bottom-image img {
+    object-position: bottom;
+}
+
 .hero-overlay {
     position: absolute;
     top: 50%;

@@ -3,13 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>プロジェクト名 | HIRAYAMARU_DOYOLAB</title>
-    <link rel="stylesheet" type="text/css" media="all" href="../css/style.css">
-    <link rel="stylesheet" type="text/css" media="all" href="../css/project-detail.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="../js/script.js"></script>
+    <title>JEANOME | HIRAYAMARU_DOYOLAB</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
 </head>
-    
 <body>
 
     <header id="header" role="banner">
@@ -24,7 +21,7 @@
                     <div class="panel">
                         <ul id="topnav">
                             <li><a href="../index.html"><strong>　ーHOMEー&nbsp;</strong><br /><span>&nbsp;</span></a></li>
-                            <li class="current-menu-item"><a href="index.html"><strong>ーWORKS / PROJECTSー</strong><br /><span>プロジェクト</span></a></li>
+                            <li><a href="works_index.html"><strong></strong>ーWORKS / PROJECTSー<br /><span>プロジェクト</span></a></li>
                             <li><a href="../profile.html"><strong>ーPROFILE/ABOUTー　&nbsp;</strong><br /><span>&nbsp;自己紹介</span></a></li>
                             <li><a href="../index.html#blog"><strong>ーACTIVITY / BLOGー &nbsp;</strong><br /><span>日々の活動記録&nbsp;</span></a></li>
                             <li><a href="../contact.html"><strong>ーCONTACTー</strong><br /><span>連絡先</span></a></li>
@@ -35,106 +32,128 @@
         </div>
     </header>
 
-    <!-- ヒーローセクション（ここに背景画像を設定） -->
-    <section class="project-hero" style="background-image: url('images/プロジェクト画像.jpg');">
-        <div class="hero-content">
-            <h1>プロジェクト名</h1>
-            <p class="subtitle">プロジェクトのキャッチコピー</p>
+    <div class="project-hero-custom align-bottom-image">
+        <img src="./images/DAIICHI/home.png" alt="JEANOME Main Visual">
+        <div class="hero-overlay">
+             <h1 class="hero-title">GREEN×EXPO 2027に向けた「紙糸」による<br>
+                暑熱対策プロダクトの開発</h1>
+        </div>
+    </div>
+
+<div id="wrapper">
+    <header class="project-header">
+        <p class="subtitle">〜産学官連携による地域資源の循環と、文化を纏う暑熱対策の提案〜</p>
+        <h1>暑熱対策プロダクト開発</h1>
+    </header>
+
+    <div class="project-meta">
+        <div class="meta-item"><h3>Context</h3><p><a href="https://tsumugi-upcycle.com/">Tsumugi Upcycle</a> / <a href="https://doyolab.net/">doyolab</a>　/ <a href="https://next-gen.city.yokohama.lg.jp/">GREEN×EXPO 2027</a></p></div>
+        <div class="meta-item"><h3>Category</h3><p>Product Design / Making / Sustainable Fashion</p></div>
+    </div>
+
+    <section class="project-section">
+        <h2>プロジェクト概要</h2>
+        <p>
+            2027年に横浜で開催される「GREEN×EXPO 2027（国際園芸博覧会）」に向けた、産学官連携の暑熱対策プロジェクト。<br>
+            横浜市（ヨコハマ未来創造会議）、ユニフォームメーカーの株式会社DAIICHI、そして道用ゼミが協力し、
+            未利用資源をアップサイクルした新素材「紙糸（TSUMUGI）」を用いたプロダクト開発に挑戦しました。
+        </p>
+        <h2>捨てられるはずだった資源に、新たな命を</h2>
+        <p>
+            - 間伐材の有効活用：森林の健全な成長のために伐採される「間伐材」。その多くは、搬出コストや形状の問題で山に放置されたままになっています。これらをチップ化し、原料として活用することで、山の保全と資源循環のサイクルを生み出しています。
+- 紙パッケージのリサイクル：** 実は、家庭から出る紙製容器のリサイクル率はわずか約3％（※公式サイトより）。その多くが焼却処分されている現状に対し、回収した紙資源を「和紙」へと再生させ、素材として再利用しています。
+        </p>
+
+        <div class="standard-image">
+            <a href="https://tsumugi-upcycle.com/">
+                <img src="./images/DAIICHI/tumugi_1.png" alt="Concept Idea">
+                <img src="./images/DAIICHI/tumugi_2.png" alt="Concept Idea">
+            </a>
         </div>
     </section>
 
-    <!-- パンくずリスト -->
-    <div class="breadcrumb">
-        <a href="../index.html">Home</a> / 
-        <a href="index.html">Works</a> / 
-        <span>プロジェクト名</span>
-    </div>
-
-    <!-- メインコンテンツ -->
-    <div id="wrapper">
-
-        <!-- プロジェクト基本情報 -->
-        <section class="project-info">
-            <div class="info-grid">
-                <div class="info-item">
-                    <h3>Period</h3>
-                    <p>2024年4月 - 2024年12月</p>
-                </div>
-                <div class="info-item">
-                    <h3>Category</h3>
-                    <p>カテゴリ名</p>
-                </div>
-                <div class="info-item">
-                    <h3>Role</h3>
-                    <p>自分の役割</p>
-                </div>
-                <div class="info-item">
-                    <h3>Team</h3>
-                    <p>個人 / チーム名</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 概要 -->
-        <section class="content-section">
-            <h2>プロジェクト概要</h2>
-            <p>
-                このプロジェクトの背景や目的について説明します。
-                どのような課題があり、何を解決しようとしたのかを記述します。
-            </p>
-            <p>
-                複数段落に分けて、詳しく説明することができます。
-                読みやすいように適度に改行を入れましょう。
-            </p>
-        </section>
-
-        <!-- 取り組み内容 -->
-        <section class="content-section">
-            <h2>取り組み内容</h2>
-            <p>
-                具体的にどのような活動を行ったかを記述します。
-                プロセスやアプローチ方法について説明します。
-            </p>
-
-            <!-- 画像ギャラリー -->
-            <div class="image-gallery">
-                <div class="gallery-item">
-                    <img src="images/作業風景1.jpg" alt="作業風景1">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/作業風景2.jpg" alt="作業風景2">
-                </div>
-                <div class="gallery-item">
-                    <img src="images/作業風景3.jpg" alt="作業風景3">
-                </div>
-            </div>
-        </section>
-
-        <!-- 成果・学び -->
-        <section class="content-section">
-            <div class="outcome-box">
-                <h2>成果と学び</h2>
-                <p>
-                    このプロジェクトを通じて得られた成果や学びについて記述します。
-                    数値的な成果や、個人的な気づきなどを含めます。
-                </p>
-                <p>
-                    今後の活動にどう活かしていくかについても触れると良いでしょう。
-                </p>
-            </div>
-        </section>
-
-        <!-- 戻るボタン -->
-        <a href="index.html" class="back-button">← Works一覧に戻る</a>
-
-    </div>
-
-    <!-- フッター -->
-    <footer id="footer">
-        <div class="inner">
-            <p class="copyright">Copyright &copy; HIRAYAMARU_DOYOLAB All Rights Reserved.</p>
+    <section class="project-section design-process">
+        <div class="process-tag">STEP 01: EMPATHIZE</div>
+        <h2>【背景や素材への理解、共感】</h2>
+        <p>
+            素材への共感： 間伐材や紙包装紙を原料とした「紙糸」の持つ、断熱性・通気性・軽量性という機能的な価値と、資源循環というサステナブルな背景を理解することからスタート。<br><br>
+        
+            現場の課題： 夏のEXPO会場で活動するスタッフの過酷な暑熱環境を自分事として捉え、単なる「冷やす道具」ではなく、スタッフのモチベーションや「横浜らしさ」を表現できるものは何かを考えました。
+        </p>
+        <div class="standard-image">
+                <img src="" alt="Concept Idea">
+            </a>
         </div>
-    </footer>
+    </section>
 
+    <section class="project-section design-process">
+        <div class="process-tag">STEP 02: DEFINE</div>
+        <h2>【コンセプトの定義】</h2>
+        <p>
+            - 問い：「最新の機能素材を、日本の文化と融合させることで、文化や素材にワクワクを持って着用できる暑熱対策ウェアは作れないか？」
+            <h2>コンセプト：「暑熱対策 × 日本文化」</h2><br>
+                - ただ涼しいだけでなく、おもてなしの精神や日本の情緒を感じさせる「文化を纏う」体験を価値として定義しました。
+        </p>
+    </section>
+
+    <section class="project-section design-process">
+        <div class="process-tag">STEP 03: IDEATE</div>
+        <h2>【紙糸✖️日本文化✖️GREEN EXPO】</h2>
+        <p>
+            - 「日本の夏」の象徴である「浴衣」をベースにするアイデアを採用。<br>
+            - 「GREEN×EXPO」の世界観に合わせ、植物由来の染料を用いてグリーン基調の色彩を表現。素材の風合いを活かしながら、視覚的にも涼しさや自然を感じさせるデザインを追求しました。<br>
+        </p>
+        <div class="standard-image">
+            <img src="、" alt="Concept Idea">
+        </div>
+
+        <p>
+        
+        </p>
+
+
+    </section>
+
+    <section class="project-section design-process">
+        <div class="process-tag">STEP 04: PROTOTYPE</div>
+        <h2>【実装に向けた軌道修正】</h2>
+        <p>
+            - 制作プロセス： 紙糸の生地を使用し、実際に浴衣を1から製作。<br>
+            - 直面した課題： 実際に着用して動いてみると、EXPOスタッフとしての「動きやすさ」や「着脱のしやすさ（取り回し）」において、丈の長い浴衣の形状では課題があることが判明。
+            - さらに、本来の浴衣の素材より薄手であり、それ単体で浴衣としての作成には向いておらず、形状の変更を視野にいれた改善が必要でした。
+            - ブラッシュアップ： コンセプトである「日本文化」を継承しつつ、よりアクティブな現場に適した「半被（はっぴ）」スタイルへとデザインを転換させました。
+
+
+        </p>
+        <div class="standard-image">
+            <img src="" alt="Making Process">
+        </div>
+    </section>
+
+    <section class="project-section design-process">
+        <div class="process-tag">STEP 05: TEST</div>
+        <h2>【社会実装への展望】</h2>
+        <p>
+            - 完成したプロダクト（半被）は、EXPOスタッフへ瀬谷駅周辺から会場などのでの活用を想定。
+            - 成果：伝統的な意匠と、紙糸の持つ「熱放・通気」という機能性が両立できることを実証。
+            - 学び：産学官という異なる立場の方々と連携する中で、デザインやアイデアの「理想」と、運用現場の「現実」をどう擦り合わせるかという、２つのバランス感覚を意識した学びを行うことができました。
+        </p>
+            <div class="standard-image">
+                <img src="." alt="Testing Experience">
+            </div>
+
+            <div class="standard-image">
+                <img src="./images/DAIICHI/home.png" alt="Testing Experience">
+            </div>
+    </section>
+
+    </div>
+
+    <div id="wrapper">
+        <footer class="project-footer">
+            <a href="./works_index.html" class="back-link">Back to Works</a>
+        </footer>
+    </div>
 </body>
+
 </html>
