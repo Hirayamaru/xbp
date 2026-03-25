@@ -46,22 +46,33 @@
     </header>
 
     <div class="project-meta">
-        <div class="meta-item"><h3>Context</h3><p>鎌倉市 / 神奈川大学 道用ゼミ / <a href="https://doyolab.net/">doyolab</a></p></div>
+        <div class="meta-item"><h3>Context</h3><p>鎌倉市 / <a href="https://doyolab.net/">doyolab</a></p></div>
         <div class="meta-item"><h3>Category</h3><p>AI / Design Thinking / Civic Tech</p></div>
     </div>
 
     <section class="project-section">
         <h2>プロジェクト概要</h2>
         <p>
-            鎌倉市が推進する「Fab City」の実現に向け、鎌倉市民の「日常の困りごと」や「あったらいいな」を、3DプリンターやIoT、AIなどの<strong>デジタルファブリケーション（FAB）</strong>を通じて解決する共創プロジェクト。2021年に締結された包括連携協定に基づき、デザイン思考の実践的な学びの場として実施されました。
+            鎌倉市が推進する「Fab City」の実現に向け、鎌倉市民の「日常の困りごと」や「あったらいいな」を、
+            3DプリンターやIoT、AIなどの<strong>デジタルファブリケーション（FAB）</strong>を通じて解決する共創プロジェクト。
+            2021年に締結された<a href="https://www.kanagawa-u.ac.jp/news/details_22422.html">包括連携協定</a>に基づき、
+            デザイン思考の実践的な学びの場として実施されました。
         </p>
     </section>
 
     <section class="project-section">
         <h2>目的とアプローチ</h2>
         <p>
-            その中で私たちは、自分たちとは異なる生活環境や視点、世代や価値観を持つ市民の方々との対話を通じ、「共感・定義・アイディア創出・プロトタイピング・テスト」というデザイン思考のプロセスを回しながら、実社会の課題解決に取り組みました。
+            その中で私たちは、自分たちとは異なる生活環境や視点、世代や価値観を持つ市民の方々との対話を通じ、
+            「共感・定義・アイディア創出・プロトタイピング・テスト」というデザイン思考のプロセスを回しながら、
+            実社会の課題解決に取り組みました。
         </p>
+
+       <div class="standard-image">
+            <a href="https://kuxbp.github.io/xbp/doyolab/creative.html">
+                <img src="./designprocess.png" alt="Concept Idea">
+            </a>
+        </div>
     </section>
 
     <section class="project-section design-process">
@@ -72,45 +83,106 @@
             <strong>インタビュー手法：</strong> 自然な会話から議題を引き出すインタビュー練習を経て、現地での対話を実施。<br>
             <strong>分析：</strong> 得られた発言を<strong>共起ネットワーク</strong>を用いて可視化し、市民が真に感じている課題の構造を分析しました。
         </p>
+        <div class="standard-image">
+            <img src="./images/KAMAKURA/インタビュー.png" alt="Concept Idea">
+            <img src="./images/KAMAKURA/5.10共起ネットワーク図.png" alt="Concept Idea">
+        </div>
+
     </section>
 
     <section class="project-section design-process">
         <div class="process-tag">STEP 02: DEFINE</div>
         <h2>課題の定義：鎌倉特有の「ゴミ分別」問題</h2>
         <p>
-            リサーチの結果、鎌倉市民が直面している切実な課題として、「ゴミ分別の細かさと複雑さ」が浮き彫りになりました。環境意識が高い街だからこそ生じているこの負担を、テクノロジーで解消することを目指しました。
+            リサーチの結果、鎌倉市民が直面している切実な課題として、「ゴミ分別の細かさと複雑さ」が浮き彫りになりました。
+            環境意識が高い街だからこそ生じているこの負担を、テクノロジーで解消することを目指しました。
+            さらにゴミの捨て方や分別に関する市役所の電話対応の現状などの問題も議題にあがり、これらを総合的に解決するためのアイディエーションへと進みました。
+        </p>
+        <div class="standard-image">
+            <img src="./images/KAMAKURA/付箋.jpg" alt="Concept Idea">
+            
+        </div>
+
+    </section>
+
+    <section class="project-section design-process">
+        <div class="process-tag">STEP 03:  IDEATE</div>
+        <h2>「問題解決のためのアイディアをできるだけ多くだす」：テクノロジーで分別を簡略化</h2>
+        <p>
+                アイディエーションの段階では、鎌倉市民の方々がゴミ分別に関して感じている「面倒くさい」「わかりづらい」という感情を解消するためのアイディアをブレインストーミングしました。<br><br>
+                その中で、誰もが持っているスマートフォン、かつ使い慣れたインターフェースであるLINEを活用し、AIで回答するチャットボットが最も市民の生活に寄り添えると判断しました。
+        </p>
+        <div class="standard-image">
+            <img src="./images/KAMAKURA/アイディア.png" alt="Concept Idea">
+            
+        </div>
+
+    </section>
+
+    <section class="project-section design-process">
+        <div class="process-tag">PROTOTYPE</div>
+        <h2>「なるべく速くプロトタイプを作る」：AI画像認識連携 LINE公式アカウントの開発</h2>
+        <p>
+            「調べたい時に、すぐ、簡単に分かる」をコンセプトに以下の技術を組み合わせて解決策を構築しました。<br><br>
+
+            <li>データ基盤： 鎌倉市が公開しているゴミ分別スプレッドシートを活用。</li>
+            <li>AI実装： ChatGPTで画像識別、およびGeminiにてコーディング、その場で写真を撮り送信、その後AIが正確な分別方法を回答するチャットボットを開発。</li>
+            <li>インターフェース：誰もが使い慣れている<strong>LINE公式アカウント</strong>としてパッケージングし、市民の生活導線に溶け込む形に仕上げました。</li>
         </p>
     </section>
 
     <section class="project-section design-process">
-        <div class="process-tag">STEP 03: PROTOTYPE</div>
-        <h2>プロトタイピング：AI画像認識を活用した「鎌倉市ゴミ分別公式LINE」の開発</h2>
+        <div class="process-tag">TEST</div>
+        <h2>「プロトタイプを試してみる」：市民・自治体への発表と検証</h2>
         <p>
-            「調べたい時に、すぐ、感覚的にわかる」体験を極めるため、テキスト入力だけでなく、<strong>「ゴミの写真を撮って送るだけ」で分別方法がわかる仕組み</strong>を構築しました。<br><br>
-            <strong>ユーザー体験（UX）：</strong> 分別方法がわからないゴミの写真をLINEで送信。<br>
-            <strong>AI画像識別：</strong> 送信された画像を<strong>ChatGPT（マルチモーダル機能）</strong>が解析し、それが何であるかを瞬時に識別。<br>
-            <strong>データ連携：</strong> 識別された品目名を基に、<strong>鎌倉市が公開しているゴミ分別スプレッドシート</strong>を自動参照。<br>
-            <strong>回答の生成：</strong> 鎌倉市の公式データに基づいた正しい分別区分と捨て方の案内を、AIが生成してLINEで回答。<br><br>
-            誰もが使い慣れているLINEをインターフェースとし、最新のAI技術と自治体のオープンデータを組み合わせることで、市民の分別ストレスを大幅に軽減するプロトタイプを開発しました。
-        </p>
-    </section>
+            開発したプロトタイプを用いて、鎌倉市の方々に実際に試していただく場（発表会）を設けました。<br>
+            発表自体は事前に撮影、制作した動画を用いて使い方の説明、解説を行い、その後実際に市民の方々にLINEで写真を送ってもらい、AIが分別方法を回答する体験をしていただきました。<br>
+            単なるアイディア提案ではなく、実際に動く「モノ」を通して、市民の生活がどう「ちょっといい」ものになるかを検証し、
+            さらにフィードバックを得ることで、プロジェクトの改善点を発見することができました。<br><br>
 
-    <section class="project-section design-process">
-        <div class="process-tag">STEP 04: PRESENT &amp; TEST</div>
-        <h2>成果発表（2025年9月〜10月）</h2>
-        <p>
-            鎌倉市の方々を前にプロトタイプを発表。技術的な実装だけでなく、いかに「市民の日常に寄り添えるか」という視点での提案を行いました。
+    <div class="project-video">
+  <h4>プロトタイプ発表動画</h4>
+  <p>LINE公式アカウントでゴミの写真を判別している様子です。</p>
+  
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/HORkBjQyU6g?si=ZI3rxFey3VMEpDUc" ...></iframe>
+</div>
+
+            
         </p>
     </section>
 
     <section class="project-section">
-        <h2>獲得したスキル・学び</h2>
+        <h2>プロジェクトを通じた学びと獲得したスキル</h2>
         <p>
-            <strong>デザイン思考の実践：</strong> ユーザーの声をデータ化（共起ネットワーク）し、具体的なソリューションへ落とし込む力。<br><br>
-            <strong>生成AIの高度な実装（マルチモーダル）：</strong> LLM（ChatGPT）の画像認識機能をAPI経由で活用し、実社会のデータ（スプレッドシート）と連携させるシステム構築力。<br><br>
-            <strong>ユーザー中心設計：</strong> 「文字を入力する」手間さえも省き、写真を撮るという直感的な行動を起点にしたUXの設計経験。<br><br>
-            <strong>共創コミュニケーション：</strong> 自治体や異なる世代の市民の方々と対話し、合意形成を行いながらプロジェクトを進める経験。
+            本プロジェクトでの実践を通じ、技術面だけでなく、社会課題に対してどのようにテクノロジーを適応させるべきか、多くの貴重な経験を積むことができました。<br><br>
+            
+            <li>
+                デザイン思考による課題解決の実践<br>
+                鎌倉市民の方々へのインタビューを通じ、現地での具体的な「声」を共起ネットワークで可視化・データ化する手法を学びました。
+                主観に頼らず、ユーザーの潜在的な悩みを論理的に導き出し、具体的な解決へと落とし込むデザイン経営的なアプローチの有用性を実感することができました。
+            </li>
+            <li>
+                生成AI（マルチモーダル）の社会実装への挑戦<br>
+                LLM（ChatGPT）の画像認識機能を活用し、鎌倉市のスプレッドシートと連携させるシステム構築に取り組みました。
+                単に最新技術を追うだけでなく、既存のデータ資源と組み合わせることで、実用性の高いツールを形にする難しさと手応えを学ぶことができました。
+            </li>
+            <li>
+                「使いやすさ」を形にする難しさ<br>
+                文字を入力するのが面倒な人でも、写真を撮るだけなら使ってくれるはず。
+                そう考えて「スマホで撮るだけ」という仕組みにこだわりました。
+                使う人の手間を減らす工夫が、サービスの良し悪しを決めるのだと気づきました。
+            </li>
+            <li>
+                多様な立場の方々との協働<br>
+                市役所の方や、自分たちとは世代も考え方も違う市民の方々と話し合いながら進めました。
+                自分たちだけで完結せず、様々な周りの方々の意見を取り入れながら一つのものを作り上げる貴重な経験になりました。
+            </li>
         </p>
+
+        <div class="standard-image">
+            <img src="./images/KAMAKURA/home_2.jpg" alt="Concept Idea">
+            
+        </div>
     </section>
 
     </div>
