@@ -6,6 +6,8 @@
     <title>JEANOME | HIRAYAMARU_DOYOLAB</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/project-detail.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/script.js"></script>
 </head>
 <body>
 
@@ -122,13 +124,12 @@
     <section class="project-section design-process">
         <div class="process-tag">PROTOTYPE</div>
         <h2>「なるべく速くプロトタイプを作る」：AI画像認識連携 LINE公式アカウントの開発</h2>
-        <p>
-            「調べたい時に、すぐ、簡単に分かる」をコンセプトに以下の技術を組み合わせて解決策を構築しました。<br><br>
-
+        <p>「調べたい時に、すぐ、簡単に分かる」をコンセプトに以下の技術を組み合わせて解決策を構築しました。</p>
+        <ul class="project-list">
             <li>データ基盤： 鎌倉市が公開しているゴミ分別スプレッドシートを活用。</li>
             <li>AI実装： ChatGPTで画像識別、およびGeminiにてコーディング、その場で写真を撮り送信、その後AIが正確な分別方法を回答するチャットボットを開発。</li>
             <li>インターフェース：誰もが使い慣れている<strong>LINE公式アカウント</strong>としてパッケージングし、市民の生活導線に溶け込む形に仕上げました。</li>
-        </p>
+        </ul>
     </section>
 
     <section class="project-section design-process">
@@ -143,8 +144,9 @@
     <div class="project-video">
   <h4>プロトタイプ発表動画</h4>
   <p>LINE公式アカウントでゴミの写真を判別している様子です。</p>
-  
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/HORkBjQyU6g?si=ZI3rxFey3VMEpDUc" ...></iframe>
+  <div class="video-wrapper">
+    <iframe src="https://www.youtube.com/embed/HORkBjQyU6g?si=ZI3rxFey3VMEpDUc" title="プロトタイプ発表動画" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
 </div>
 
             
@@ -153,31 +155,30 @@
 
     <section class="project-section">
         <h2>プロジェクトを通じた学びと獲得したスキル</h2>
-        <p>
-            本プロジェクトでの実践を通じ、技術面だけでなく、社会課題に対してどのようにテクノロジーを適応させるべきか、多くの貴重な経験を積むことができました。<br><br>
-            
+        <p>本プロジェクトでの実践を通じ、技術面だけでなく、社会課題に対してどのようにテクノロジーを適応させるべきか、多くの貴重な経験を積むことができました。</p>
+        <ul class="project-list">
             <li>
-                デザイン思考による課題解決の実践<br>
+                <strong>デザイン思考による課題解決の実践</strong><br>
                 鎌倉市民の方々へのインタビューを通じ、現地での具体的な「声」を共起ネットワークで可視化・データ化する手法を学びました。
                 主観に頼らず、ユーザーの潜在的な悩みを論理的に導き出し、具体的な解決へと落とし込むデザイン経営的なアプローチの有用性を実感することができました。
             </li>
             <li>
-                生成AI（マルチモーダル）の社会実装への挑戦<br>
+                <strong>生成AI（マルチモーダル）の社会実装への挑戦</strong><br>
                 LLM（ChatGPT）の画像認識機能を活用し、鎌倉市のスプレッドシートと連携させるシステム構築に取り組みました。
                 単に最新技術を追うだけでなく、既存のデータ資源と組み合わせることで、実用性の高いツールを形にする難しさと手応えを学ぶことができました。
             </li>
             <li>
-                「使いやすさ」を形にする難しさ<br>
+                <strong>「使いやすさ」を形にする難しさ</strong><br>
                 文字を入力するのが面倒な人でも、写真を撮るだけなら使ってくれるはず。
                 そう考えて「スマホで撮るだけ」という仕組みにこだわりました。
                 使う人の手間を減らす工夫が、サービスの良し悪しを決めるのだと気づきました。
             </li>
             <li>
-                多様な立場の方々との協働<br>
+                <strong>多様な立場の方々との協働</strong><br>
                 市役所の方や、自分たちとは世代も考え方も違う市民の方々と話し合いながら進めました。
                 自分たちだけで完結せず、様々な周りの方々の意見を取り入れながら一つのものを作り上げる貴重な経験になりました。
             </li>
-        </p>
+        </ul>
 
         <div class="standard-image">
             <img src="./images/KAMAKURA/home_2.jpg" alt="Concept Idea">
