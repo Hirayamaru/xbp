@@ -255,8 +255,10 @@ a:active, a:focus { outline: 0; }
 }
 
 /* ナビゲーション */
+/* スマホではjQueryのhide()で制御するが、JS読み込み前にも開いて見えないようデフォルト非表示に。
+   PCでは960px以上のメディアクエリで display:block !important で上書き */
 #mainNav .panel {
-  display: block;
+  display: none;
 }
 
 #topnav {
