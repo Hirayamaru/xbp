@@ -305,3 +305,302 @@
 .project-list li:first-child {
     border-top: 1px solid #f0f0f0;
 }
+
+
+/* ============================================
+   PATCH & PLAY 固有スタイル
+   ============================================ */
+
+/* ===== PATCH & PLAY 固有スタイル ===== */
+
+/* ヒーロー：黒地 + グリッドライン装飾 */
+.pp-hero {
+    width: 100%;
+    height: 50vh;
+    background: #0f0f0f;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 60px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.pp-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.45;
+}
+
+.pp-hero-inner {
+    position: relative;
+    z-index: 2;
+    padding: 0 40px 36px;
+    width: 100%;
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+.pp-hero-eyebrow {
+    font-family: var(--font-sans);
+    font-size: 10px;
+    letter-spacing: 0.45em;
+    color: rgba(255,255,255,0.45);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.pp-hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 300;
+    color: #fff;
+    letter-spacing: 0.12em;
+    line-height: 1.15;
+    margin-bottom: 12px;
+}
+
+.pp-hero-sub {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.3em;
+}
+
+/* ストーリーフロー */
+.story-flow {
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+    margin: 40px 0 50px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.flow-step {
+    display: flex;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+.flow-node {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-width: 130px;
+}
+
+.flow-node-label {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    color: var(--color-muted, #999);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+}
+
+.flow-node-text {
+    font-size: 0.85rem;
+    color: var(--color-ink, #1a1a1a);
+    line-height: 1.6;
+}
+
+.flow-connector {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    padding-top: 22px;
+    color: #ccc;
+    font-size: 12px;
+    flex-shrink: 0;
+}
+
+/* ショップ概要ボックス */
+.shop-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    margin: 40px 0;
+}
+
+.shop-info-item {
+    background: #fff;
+    padding: 22px 24px;
+}
+
+.shop-info-label {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    letter-spacing: 0.35em;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.shop-info-val {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #222;
+}
+
+.shop-info-val a {
+    color: #222;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 業務タグ */
+.role-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 24px 0 36px;
+}
+
+.role-tag {
+    font-family: var(--font-sans);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: #555;
+    border: 1px solid #ddd;
+    padding: 6px 14px;
+    border-radius: 0;
+}
+
+/* SCENEタグ（STEPの代替） */
+.scene-tag {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    font-size: 0.65rem;
+    padding: 4px 12px;
+    letter-spacing: 0.25em;
+    margin-bottom: 20px;
+    font-family: var(--font-sans);
+    font-weight: 400;
+}
+
+/* Pinterest風マソンリーギャラリー */
+.gallery-section {
+    margin: 60px 0 80px;
+}
+
+.gallery-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 6px;
+}
+
+.gallery-note {
+    font-size: 0.78rem;
+    color: #aaa;
+    margin-bottom: 28px;
+    font-family: var(--font-sans);
+}
+
+.masonry-grid {
+    columns: 3;
+    column-gap: 10px;
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background: #f4f4f4;
+    position: relative;
+}
+
+.masonry-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.masonry-item:hover img {
+    transform: scale(1.03);
+}
+
+/* 画像がない場合のプレースホルダー */
+.masonry-placeholder {
+    width: 100%;
+    background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    break-inside: avoid;
+    margin-bottom: 10px;
+}
+
+.masonry-placeholder-inner {
+    padding: 24px 12px;
+    text-align: center;
+}
+
+.ph-label {
+    font-family: var(--font-sans);
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: #bbb;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.ph-desc {
+    font-size: 10px;
+    color: #ccc;
+}
+
+/* キャプションオーバーレイ */
+.masonry-item .caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    font-size: 10px;
+    padding: 8px 10px;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-family: var(--font-sans);
+}
+
+.masonry-item:hover .caption {
+    opacity: 1;
+}
+
+/* 引用ブロック */
+.pp-quote {
+    border-left: 2px solid #222;
+    padding: 16px 24px;
+    margin: 36px 0;
+}
+
+.pp-quote p {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    line-height: 2.2;
+    color: #333;
+    margin: 0;
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .pp-hero { height: 55vw; min-height: 240px; }
+    .pp-hero-inner { padding: 0 20px 24px; }
+    .pp-hero-title { font-size: clamp(1.6rem, 7vw, 2.4rem); }
+    .shop-info-grid { grid-template-columns: 1fr; }
+    .masonry-grid { columns: 2; }
+    .story-flow { gap: 0; }
+}
+
+@media (max-width: 480px) {
+    .masonry-grid { columns: 2; column-gap: 6px; }
+    .masonry-item { margin-bottom: 6px; }
+    .flow-connector { padding: 0 8px; padding-top: 22px; }
+    .flow-node { max-width: 90px; }
+}

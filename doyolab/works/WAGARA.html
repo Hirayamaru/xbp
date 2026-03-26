@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学内ビジネスコンテスト | HIRAYAMARU_DOYOLAB</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project-detail.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="../js/script.js"></script>
+    <style>
+        /* ========== このページ固有のスタイル ========== */
+
+        /* ヒーロー：画像なし版（黒背景＋テキスト） */
+        .project-hero-text {
+            width: 100%;
+            height: 45vh;
+            background: #111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 60px;
+            overflow: hidden;
+        }
+
+        .project-hero-text::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 59px,
+                rgba(255,255,255,0.03) 60px
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 59px,
+                rgba(255,255,255,0.03) 60px
+            );
+        }
+
+        .hero-text-inner {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-eyebrow {
+            font-family: var(--font-sans, sans-serif);
+            font-size: 0.7rem;
+            letter-spacing: 0.5em;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero-text-inner h1 {
+            font-size: clamp(1.6rem, 4vw, 2.8rem);
+            color: #fff;
+            font-weight: 300;
+            letter-spacing: 0.12em;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .hero-text-inner .hero-sub {
+            font-size: 0.8rem;
+            color: #555;
+            letter-spacing: 0.2em;
+        }
+
+        /* Canva埋め込みエリア */
+        .canva-section {
+            margin: 60px 0 80px;
+        }
+
+        .canva-section h2 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .canva-section .section-note {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-bottom: 30px;
+            letter-spacing: 0.05em;
+        }
+
+        /* Canva iframeラッパー（16:9） */
+        .canva-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            background: #f5f5f5;
+            border: 1px solid #eee;
+        }
+
+        .canva-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Canvaコード未設定時のプレースホルダー */
+        .canva-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            background: #f8f8f8;
+            color: #aaa;
+        }
+
+        .canva-placeholder .placeholder-icon {
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+
+        .canva-placeholder p {
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-align: center;
+            line-height: 2;
+            margin: 0;
+        }
+
+        .canva-placeholder a {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            color: #888;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 2px;
+            letter-spacing: 0.15em;
+        }
+
+        /* 受賞・結果ハイライト */
+        .result-highlight {
+            background: #f9f9f9;
+            border-left: 3px solid #222;
+            padding: 28px 32px;
+            margin: 40px 0;
+        }
+
+        .result-highlight .result-label {
+            font-family: var(--font-sans, sans-serif);
+            font-size: 0.65rem;
+            letter-spacing: 0.4em;
+            color: #aaa;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .result-highlight p {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin: 0;
+            color: #222;
+        }
+
+        /* 2カラム：画像＋テキスト */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+            margin: 40px 0;
+        }
+
+        .two-col img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .two-col .col-text {
+            padding-top: 8px;
+        }
+
+        .two-col .col-text h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 14px;
+            letter-spacing: 0.05em;
+        }
+
+        .two-col .col-text p {
+            font-size: 0.88rem;
+            line-height: 2.1;
+            color: #555;
+            margin: 0;
+        }
+
+        @media (max-width: 640px) {
+            .project-hero-text { height: 50vw; min-height: 220px; }
+            .two-col { grid-template-columns: 1fr; gap: 24px; }
+            .result-highlight { padding: 20px; }
+            .canva-section h2 { font-size: 1.1rem; }
+            .numbers-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .number-value { font-size: 1.6rem; }
+        }
+
+        @media (max-width: 400px) {
+            .numbers-grid { grid-template-columns: 1fr; }
+        }
+
+        /* PDF埋め込みエリア */
+        .pdf-embed-area {
+            margin: 30px 0 40px;
+            border: 1px solid #e8e8e8;
+            background: #fafafa;
+        }
+
+        .pdf-placeholder {
+            padding: 48px 20px;
+            text-align: center;
+        }
+
+        .pdf-placeholder-label {
+            font-family: var(--font-sans, sans-serif);
+            font-size: 0.65rem;
+            letter-spacing: 0.5em;
+            color: #bbb;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .pdf-placeholder-note {
+            font-size: 0.78rem;
+            color: #ccc;
+            line-height: 2;
+            margin: 0;
+        }
+
+        .pdf-iframe {
+            display: block;
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        /* 数値ハイライトグリッド */
+        .numbers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #e8e8e8;
+            border: 1px solid #e8e8e8;
+            margin: 40px 0 0;
+        }
+
+        .number-item {
+            background: #fff;
+            padding: 24px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .number-label {
+            font-family: var(--font-sans, sans-serif);
+            font-size: 0.65rem;
+            color: #aaa;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .number-value {
+            font-size: 2rem;
+            font-weight: 300;
+            color: #111;
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .number-value small {
+            font-size: 0.9rem;
+            color: #888;
+            margin-left: 2px;
+        }
+
+        .number-sub {
+            font-size: 0.72rem;
+            color: #bbb;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header" role="banner">
+        <div class="inner">
+            <div class="logo">
+                <a href="../index.html" title="HIRAYAMARU_DOYOLAB" rel="home">doyolab<br /><span>Kiichi Hirayama</span></a>
+                <h1>&nbsp;</h1>
+            </div>
+            <nav id="mainNav">
+                <div class="inner">
+                    <a class="menu" id="menu"><span>MENU</span></a>
+                    <div class="panel">
+                        <ul id="topnav">
+                            <li><a href="../index.html"><strong>ーHOMEー</strong><br /><span>&nbsp;</span></a></li>
+                            <li class="current-menu-item"><a href="works_index.html"><strong>ーWORKS / PROJECTSー</strong><br /><span>プロジェクト</span></a></li>
+                            <li><a href="../profile.html"><strong>ーPROFILE/ABOUTー</strong><br /><span>自己紹介</span></a></li>
+                            <li><a href="../index.html#blog"><strong>ーACTIVITY / BLOGー</strong><br /><span>日々の活動記録</span></a></li>
+                            <li><a href="../contact.html"><strong>ーCONTACTー</strong><br /><span>連絡先</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ヒーロー（テキストのみ版） -->
+    <div class="project-hero-text">
+        <div class="hero-text-inner">
+            <p class="hero-eyebrow">XBP Business Contest / 2025.01</p>
+            <h1>和柄リメイクブランドの<br>立ち上げ提案</h1>
+            <p class="hero-sub">学内ビジネスコンテスト</p>
+        </div>
+    </div>
+
+    <div id="wrapper">
+
+        <header class="project-header">
+            <p class="subtitle">XBP 2年次 最終課題 ／ チームプロジェクト</p>
+            <h1>学内ビジネスコンテスト</h1>
+        </header>
+
+        <div class="project-meta">
+            <div class="meta-item">
+                <h3>Period</h3>
+                <p>2025.01.20</p>
+            </div>
+            <div class="meta-item">
+                <h3>Category</h3>
+                <p>Business Plan / Brand Design</p>
+            </div>
+            <div class="meta-item">
+                <h3>Role</h3>
+                <p>企画・プレゼンテーション</p>
+            </div>
+        </div>
+
+        <!-- プレゼン資料（Canva埋め込み） -->
+        <section class="canva-section">
+            <h2>発表資料</h2>
+            <p class="section-note">プレゼンテーションスライド（Canva）</p>
+            <div style="position: relative; width: 100%; height: 0; padding-top: 56.2500%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAGcWBYQVeU/SiEDooLG38zzcAn0ys_quw/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<p style="font-size: 0.75rem; color: #aaa; text-align: right; margin-top: 8px; letter-spacing: 0.05em;">
+  Kiichi Kiichiさんによる<a href="https://www.canva.com/design/DAGcWBYQVeU/SiEDooLG38zzcAn0ys_quw/view?utm_content=DAGcWBYQVeU&utm_campaign=designshare&utm_medium=embeds&utm_source=link" target="_blank" rel="noopener" style="color:#aaa; border-bottom: 1px solid #ddd;">和GARA</a>
+</p>
+        </section>
+
+        <!-- 概要 -->
+        <section class="project-section">
+            <h2>プロジェクト概要</h2>
+            <p>
+                2年次の最終課題として、XBP内でビジネスコンテストが開催されました。
+                私たちのグループでは<strong>「和柄をコンセプトとしたリメイクブランドの立ち上げ」</strong>をテーマに事業提案を行いました。
+            </p>
+            <p>
+                日本の伝統的な和柄の美意識と、サステナブルファッションの潮流を掛け合わせ、
+                古着や余り布を素材に、現代のライフスタイルに馴染む新しいブランドのビジョンを構築しました。
+            </p>
+        </section>
+
+        <!-- プロセス：背景 -->
+        <section class="project-section design-process">
+            <div class="process-tag">BACKGROUND</div>
+            <h2>着想のきっかけ</h2>
+            <p>
+                ゼミでのリメイク・アップサイクルに関する一連の活動を通じて、
+                「捨てられる服」に対する問題意識が高まっていました。
+                一方で、サステナブルファッションのプロダクトが「地味」「義務感がある」という印象を
+                持たれがちな現状にも課題を感じていました。
+            </p>
+            <p>
+                そこで着目したのが、<strong>日本の和柄</strong>が持つ圧倒的な装飾性と文化的背景です。
+                華やかさや個性を持ちながら、素材を大切にするという日本の美意識は、
+                サステナブルファッションと自然に結びつくと考えました。
+            </p>
+
+            <div class="standard-image">
+                <img src="../images/WAGARA.jpeg" alt="和柄リメイクのコンセプトイメージ">
+            </div>
+        </section>
+
+        <!-- プロセス：コンセプト -->
+        <section class="project-section design-process">
+            <div class="process-tag">CONCEPT</div>
+            <h2>ブランドコンセプト</h2>
+
+            <div class="result-highlight">
+                <p class="result-label">Brand Vision</p>
+                <p>「和の美意識を、今日の一着へ。」<br>
+                古着・廃棄素材を和柄の意匠でリメイクし、<br>
+                着ることで日本文化に触れられるブランドを目指す。</p>
+            </div>
+
+            <p>
+                ターゲットは、ファッションにおいて「個性」と「意味」の両方を求める20〜30代。
+                単なるエコではなく、<strong>「着たくなるサステナブル」</strong>を実現するブランドとして、
+                デザイン・ストーリー・体験の三軸でブランド価値を設計しました。
+            </p>
+        </section>
+
+        <!-- プロセス：事業計画 -->
+        <section class="project-section design-process">
+            <div class="process-tag">BUSINESS PLAN</div>
+            <h2>事業計画の骨子</h2>
+            <ul class="project-list">
+                <li>
+                    <strong>素材調達</strong><br>
+                    着物・浴衣の廃棄素材や古着デニムを主な原料として活用。
+                    リサイクルショップや和装業者との連携により、安定した素材確保を目指す。
+                </li>
+                <li>
+                    <strong>製品ライン</strong><br>
+                    和柄のパッチワーク技法を用いたジャケット・バッグ・アクセサリーなどを展開。
+                    1点物の希少性をブランド価値として訴求する。
+                </li>
+                <li>
+                    <strong>販売チャネル</strong><br>
+                    D2CのECサイトをメインに、ポップアップイベントや観光地との連携も視野に入れる。
+                    インバウンド需要を意識したブランディングも行う。
+                </li>
+                <li>
+                    <strong>収益モデル</strong><br>
+                    プロダクト販売に加え、リメイクワークショップの開催による体験価値の販売も組み込む。
+                </li>
+            </ul>
+        </section>
+
+        <!-- 事業計画書 -->
+        <section class="project-section">
+            <h2>事業計画書</h2>
+            <p>
+                ブランドの具体的なビジョンと数値計画をまとめた事業計画書です。
+                OEM生産を想定した原価計算・販売価格の設定から、1〜3年目の損益計画・資金計画まで、
+                実際のビジネスを想定した数値を伴う計画書として作成しました。
+            </p>
+
+            <!-- PDF埋め込みエリア -->
+            <div class="pdf-embed-area">
+                <iframe
+                    src="https://drive.google.com/file/d/19XxlurgA4a0HSA3yubBvFyvIAc2vXW1G/preview"
+                    class="pdf-iframe"
+                    allow="autoplay"
+                    title="事業計画書 - 和GARA">
+                </iframe>
+            </div>
+
+            <!-- 数値ハイライト -->
+            <div class="numbers-grid">
+                <div class="number-item">
+                    <span class="number-label">1年目 売上目標</span>
+                    <span class="number-value">2,880<small>万円</small></span>
+                    <span class="number-sub">月20本 × ¥120,000</span>
+                </div>
+                <div class="number-item">
+                    <span class="number-label">2年目 売上目標</span>
+                    <span class="number-value">7,200<small>万円</small></span>
+                    <span class="number-sub">月50本 × ¥120,000</span>
+                </div>
+                <div class="number-item">
+                    <span class="number-label">3年目 売上目標</span>
+                    <span class="number-value">2.16<small>億円</small></span>
+                    <span class="number-sub">デニムA＋デニムBの2ライン展開</span>
+                </div>
+                <div class="number-item">
+                    <span class="number-label">1年目 営業利益</span>
+                    <span class="number-value">1,008<small>万円</small></span>
+                    <span class="number-sub">粗利率 60% / 経常利益率 34.5%</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 学び -->
+        <section class="project-section">
+            <h2>コンテストを通じた学び</h2>
+            <p>
+                ビジネスコンテストという場で初めて「ゼロからの事業提案」に取り組み、
+                デザインのアイデアをビジネスの言語に翻訳することの難しさと面白さを実感しました。
+            </p>
+            <ul class="project-list">
+                <li>
+                    <strong>「共感」から「マネタイズ」への橋渡し</strong><br>
+                    課題意識をいかに収益モデルへ落とし込むか。デザイン思考とビジネス思考の往復が求められました。
+                </li>
+                <li>
+                    <strong>競合分析・差別化の重要性</strong><br>
+                    既存のサステナブルファッションブランドとの違いを明確に言語化することで、
+                    ブランドのユニークネスが初めて伝わることを学びました。
+                </li>
+                <li>
+                    <strong>数値計画と実行計画</strong><br>
+                    OEM生産を想定した原価計算や販売価格の設定など、具体的な数値を伴う計画書を作成。
+                    1〜3年目の損益・資金計画を通じ、アイデアを事業として成立させるための思考を鍛えました。
+                </li>
+                <li>
+                    <strong>プレゼンテーションの設計</strong><br>
+                    「伝わるスライド」と「伝わる話し方」は別物。
+                    視覚的な資料の設計と、口頭でのストーリーテリングを両立する難しさを体感しました。
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+    <div id="wrapper">
+        <footer class="project-footer">
+            <a href="./works_index.html" class="back-link">Back to Works</a>
+        </footer>
+    </div>
+
+</body>
+</html>

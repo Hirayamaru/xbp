@@ -1,94 +1,409 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="NOWをLIVEしろ！">
-	<title>HIRAYAMARU_DOYOLAB</title>
-	<link rel="stylesheet" type="text/css" media="all" href="./css/style.css">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-	<script src="js/script.js"></script>
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROFILE / ABOUT | HIRAYAMARU_DOYOLAB</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./js/script.js"></script>
+    <style>
+        #profile-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 80px 40px 120px;
+        }
 
+        /* ===== EDITORIAL ===== */
+        .profile-editorial {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 60px;
+            align-items: start;
+            padding-bottom: 80px;
+            border-bottom: 1px solid var(--color-rule);
+            margin-bottom: 80px;
+        }
+        .profile-photo {
+            width: 200px; height: 260px;
+            object-fit: cover; display: block;
+            filter: grayscale(15%);
+        }
+        .profile-initial {
+            width: 200px; height: 260px;
+            background: var(--color-off);
+            border: 1px solid var(--color-rule);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .profile-initial span {
+            font-family: var(--font-serif);
+            font-size: 48px; font-weight: 200;
+            color: var(--color-light); letter-spacing: 0.1em;
+        }
+        .profile-text-col { padding-top: 8px; }
+        .profile-eyebrow {
+            font-family: var(--font-sans);
+            font-size: 9px; letter-spacing: 0.5em;
+            color: var(--color-light); text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .profile-name-ja {
+            font-family: var(--font-serif);
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 200; letter-spacing: 0.15em;
+            line-height: 1.2; margin-bottom: 6px;
+            color: var(--color-ink);
+        }
+        .profile-name-en {
+            font-family: var(--font-sans);
+            font-size: 12px; font-weight: 300;
+            letter-spacing: 0.35em; color: var(--color-muted);
+            text-transform: uppercase; margin-bottom: 36px;
+        }
+        .profile-meta-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            margin-bottom: 40px;
+            border-top: 1px solid var(--color-rule);
+        }
+        .profile-meta-item {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--color-rule);
+        }
+        .profile-meta-item:nth-child(odd) {
+            padding-right: 24px;
+            border-right: 1px solid var(--color-rule);
+        }
+        .profile-meta-item:nth-child(even) { padding-left: 24px; }
+        .meta-label {
+            font-family: var(--font-sans);
+            font-size: 9px; letter-spacing: 0.4em;
+            color: var(--color-light); text-transform: uppercase;
+            display: block; margin-bottom: 5px;
+        }
+        .meta-value {
+            font-family: var(--font-serif);
+            font-size: 13px; color: var(--color-ink); line-height: 1.7;
+        }
+        .profile-bio {
+            font-family: var(--font-serif);
+            font-size: 14px; line-height: 2.4;
+            color: #444; letter-spacing: 0.05em;
+            margin-bottom: 36px;
+        }
+        .profile-tags-label {
+            font-family: var(--font-sans);
+            font-size: 9px; letter-spacing: 0.4em;
+            color: var(--color-light); text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+        .profile-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .profile-tag {
+            font-family: var(--font-sans);
+            font-size: 10px; letter-spacing: 0.15em;
+            color: var(--color-muted);
+            border: 1px solid var(--color-rule);
+            padding: 5px 14px;
+            transition: all 0.25s ease;
+        }
+        .profile-tag:hover { border-color: var(--color-ink); color: var(--color-ink); }
+
+        /* ===== TIMELINE ===== */
+        .section-heading {
+            font-family: var(--font-sans);
+            font-size: 9px; letter-spacing: 0.5em;
+            color: var(--color-light); text-transform: uppercase;
+            margin-bottom: 48px;
+            display: flex; align-items: center; gap: 20px;
+        }
+        .section-heading::after {
+            content: ""; flex: 1;
+            height: 1px; background: var(--color-rule);
+        }
+        .timeline { position: relative; padding-left: 100px; }
+        .timeline::before {
+            content: "";
+            position: absolute; left: 80px; top: 8px; bottom: 0;
+            width: 1px; background: var(--color-rule);
+        }
+        .timeline-item { position: relative; margin-bottom: 52px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-year {
+            position: absolute; left: -100px; top: 2px;
+            font-family: var(--font-sans);
+            font-size: 10px; letter-spacing: 0.1em;
+            color: var(--color-light); width: 68px; text-align: right;
+        }
+        .timeline-dot {
+            position: absolute; left: -24px; top: 7px;
+            width: 7px; height: 7px; border-radius: 50%;
+            background: var(--color-bg);
+            border: 1.5px solid var(--color-light);
+        }
+        .timeline-item.current .timeline-dot {
+            background: var(--color-ink); border-color: var(--color-ink);
+        }
+        .timeline-item.current .timeline-year { color: var(--color-ink); }
+        .timeline-category {
+            font-family: var(--font-sans);
+            font-size: 8px; letter-spacing: 0.3em;
+            text-transform: uppercase; color: var(--color-light);
+            margin-bottom: 4px;
+        }
+        .timeline-title {
+            font-family: var(--font-serif);
+            font-size: 16px; font-weight: 400;
+            color: var(--color-ink); letter-spacing: 0.05em;
+            line-height: 1.5; margin-bottom: 6px;
+        }
+        .timeline-desc {
+            font-family: var(--font-serif);
+            font-size: 12px; color: var(--color-muted);
+            line-height: 2; letter-spacing: 0.04em;
+        }
+        .timeline-link {
+            display: inline-block; margin-top: 8px;
+            font-family: var(--font-sans);
+            font-size: 9px; letter-spacing: 0.3em;
+            color: var(--color-light); text-transform: uppercase;
+            border-bottom: 1px solid var(--color-rule);
+            padding-bottom: 2px; transition: all 0.25s ease;
+        }
+        .timeline-link:hover { color: var(--color-ink); border-bottom-color: var(--color-ink); }
+
+        /* ===== SKILLS ===== */
+        .skills-section {
+            margin-top: 80px; padding-top: 80px;
+            border-top: 1px solid var(--color-rule);
+        }
+        .skills-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid var(--color-rule);
+            border-left: 1px solid var(--color-rule);
+            margin-top: 40px;
+        }
+        .skill-item {
+            padding: 24px 20px;
+            border-right: 1px solid var(--color-rule);
+            border-bottom: 1px solid var(--color-rule);
+        }
+        .skill-category {
+            font-family: var(--font-sans);
+            font-size: 9px; letter-spacing: 0.35em;
+            color: var(--color-light); text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .skill-list {
+            font-family: var(--font-serif);
+            font-size: 12px; color: var(--color-muted); line-height: 2.2;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            #profile-wrapper { padding: 40px 20px 80px; }
+            .profile-editorial { grid-template-columns: 1fr; gap: 32px; padding-bottom: 60px; margin-bottom: 60px; }
+            .profile-photo, .profile-initial { width: 120px; height: 160px; }
+            .profile-initial span { font-size: 32px; }
+            .profile-meta-grid { grid-template-columns: 1fr; }
+            .profile-meta-item:nth-child(odd) { padding-right: 0; border-right: none; }
+            .profile-meta-item:nth-child(even) { padding-left: 0; }
+            .timeline { padding-left: 64px; }
+            .timeline::before { left: 46px; }
+            .timeline-year { left: -64px; width: 44px; font-size: 9px; }
+            .timeline-dot { left: -18px; }
+            .skills-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
 <body>
 
-	<!-- ===== HERO SECTION ===== -->
-	<section id="hero">
-		<div class="hero-inner">
-			<div class="hero-label reveal-up delay-1">HIRAYAMARU_DOYOLAB</div>
-			<h1 class="hero-catch reveal-up delay-2">想像力が、<br>動き出す。</h1>
-			<p class="hero-sub reveal-up delay-3">
-				問いを立て、形にする。<br>
-				道用ゼミは、社会とデザインをつなぐ実践の場。
-			</p>
-			<p class="hero-sub2 reveal-up delay-4">
-				― その先にある「まだない価値」を探しにいく。<br>
-				思考を深め、アイデアを研ぎ澄ます。<br>
-				ここから未来が動き出す。
-			</p>
-			<div class="hero-scroll-hint reveal-up delay-5">
-				<span class="scroll-label">SCROLL</span>
-				<div class="scroll-line"></div>
-			</div>
-		</div>
-	</section>
-
-	<header id="header" role="banner">
-		<div class="inner">
-			<div class="logo">
-				<a href="index.html" title="HIRAYAMARU_DOYOLAB" rel="home">doyolab<br /><span>Kiichi Hirayama</span></a>
-				<h1>&nbsp;</h1>
-			</div>
-			<nav id="mainNav">
-				<div class="inner">
-					<a class="menu" id="menu"><span>MENU</span></a>
-					<div class="panel">
-						<ul id="topnav">
-							<li class="current-menu-item"><a href="../doyolab/index.html"><strong>ーHOMEー</strong><br /><span>&nbsp;</span></a></li>
-							<li><a href="../doyolab/works/works_index.html"><strong>ーWORKS / PROJECTSー</strong><br /><span>プロジェクト</span></a></li>
-							<li><a href="../doyolab/profile.html"><strong>ーPROFILE/ABOUTー</strong><br /><span>自己紹介</span></a></li>
-							<li><a href="#blog"><strong>ーACTIVITY / BLOGー</strong><br /><span>日々の活動記録</span></a></li>
-							<li><a href="../doyolab/contact.html"><strong>ーCONTACTー</strong><br /><span>連絡先</span></a></li>
-						</ul>
-					</div>
-				</div>
-			</nav>
-		</div>
-	</header>
-
-	<section id="profile-detail">
-    <div class="inner">
-        <h2 class="section-title">ABOUT ME</h2>
-        
-        <div class="profile-flex">
-            <div class="profile-image">
-                <img src="../images/your-photo.jpg" alt="Kiichi Hirayama">
+    <header id="header" role="banner">
+        <div class="inner">
+            <div class="logo">
+                <a href="./index.html" title="HIRAYAMARU_DOYOLAB" rel="home">doyolab<br /><span>Kiichi Hirayama</span></a>
+                <h1>&nbsp;</h1>
             </div>
-
-            <div class="profile-text">
-                <h3>平山 貴一 / Kiichi Hirayama</h3>
-                <p>21歳。大学でサービスデザインやビジネスを学びつつ、FabLabやリメイクスタジオを拠点に活動しています。</p>
-                
-                <h4>Core Skills</h4>
-                <ul>
-                    <li>Design: Figma, Illustrator, Service Design</li>
-                    <li>Make: CNC Cutting, Denim Upcycle, NFC Integration</li>
-                    <li>Sound: DJing (rekordbox)</li>
-                </ul>
-            </div>
+            <nav id="mainNav">
+                <div class="inner">
+                    <a class="menu" id="menu"><span>MENU</span></a>
+                    <div class="panel">
+                        <ul id="topnav">
+                            <li><a href="./index.html"><strong>ーHOMEー</strong><br /><span>&nbsp;</span></a></li>
+                            <li><a href="./works/works_index.html"><strong>ーWORKS / PROJECTSー</strong><br /><span>プロジェクト</span></a></li>
+                            <li class="current-menu-item"><a href="./profile.html"><strong>ーPROFILE/ABOUTー</strong><br /><span>自己紹介</span></a></li>
+                            <li><a href="./index.html#blog"><strong>ーACTIVITY / BLOGー</strong><br /><span>日々の活動記録</span></a></li>
+                            <li><a href="./contact.html"><strong>ーCONTACTー</strong><br /><span>連絡先</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
         </div>
-    </div>
-</section>
+    </header>
 
-	<footer id="footer">
-		<div class="inner">
-			<p class="copyright">© 2025 Kiichi Hirayama / DOYOLAB. All Rights Reserved.</p>
-		</div>
-	</footer>
+    <div id="profile-wrapper">
+
+        <!-- ===== EDITORIAL ===== -->
+        <section class="profile-editorial">
+            <div class="profile-photo-col">
+                
+                <img class="profile-photo" src="./works/images/profile.jpeg" alt="Kiichi Hirayama">
+            </div>
+
+            <div class="profile-text-col">
+                <p class="profile-eyebrow">Profile / About</p>
+                <h1 class="profile-name-ja">平山 喜一</h1>
+                <p class="profile-name-en">Kiichi Hirayama</p>
+
+                <div class="profile-meta-grid">
+                    <div class="profile-meta-item">
+                        <span class="meta-label">University</span>
+                        <span class="meta-value">神奈川大学<br>経営学部 3年</span>
+                    </div>
+                    <div class="profile-meta-item">
+                        <span class="meta-label">Seminar</span>
+                        <span class="meta-value">道用ゼミ<br>doyolab</span>
+                    </div>
+                    <div class="profile-meta-item">
+                        <span class="meta-label">Based in</span>
+                        <span class="meta-value">東京 / 神奈川</span>
+                    </div>
+                    <div class="profile-meta-item">
+                        <span class="meta-label">Contact</span>
+                        <span class="meta-value"><a href="./contact.html">お問い合わせ →</a></span>
+                    </div>
+                </div>
+
+                <p class="profile-bio">
+                    問いを立て、手を動かし、形にする。<br>
+                    サステナブルファッション・デジタルファブリケーション・地域共創など、
+                    社会とデザインが交差する領域で実践的なプロジェクトに取り組んでいます。<br>
+                    リメイクとデジタル技術を掛け合わせた「JEANOME」、
+                    鎌倉市民の困りごとをAIで解決する「ゴミ分別LINEボット」など、
+                    アイデアを実際に動くプロダクトとして世に出すことを大切にしています。
+                </p>
+
+                <p class="profile-tags-label">Interest / Keywords</p>
+                <div class="profile-tags">
+                    <span class="profile-tag">Sustainable Fashion</span>
+                    <span class="profile-tag">Remake / Upcycle</span>
+                    <span class="profile-tag">Digital Fabrication</span>
+                    <span class="profile-tag">NFC / IoT</span>
+                    <span class="profile-tag">Design Thinking</span>
+                    <span class="profile-tag">Civic Tech</span>
+                    <span class="profile-tag">Brand Design</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TIMELINE ===== -->
+        <section>
+            <h2 class="section-heading">Timeline / Activity</h2>
+            <div class="timeline">
+
+                <div class="timeline-item">
+                    <span class="timeline-year">2023</span>
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-category">Education</p>
+                    <p class="timeline-title">神奈川大学 経営学部 入学</p>
+                    <p class="timeline-desc">XBPプログラムに参加。デザイン思考・ビジネスの基礎を学ぶ。</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-year">2024</span>
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-category">Seminar</p>
+                    <p class="timeline-title">道用ゼミ 配属</p>
+                    <p class="timeline-desc">社会とデザインをつなぐ実践の場、doyolabへ。フィールドワーク・プロトタイピングを通じて課題解決に取り組む。</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-year">2024.5</span>
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-category">Project</p>
+                    <p class="timeline-title">鎌倉市 × doyolab — ゴミ分別 AI LINEボット</p>
+                    <p class="timeline-desc">鎌倉市民へのフィールドインタビューをもとにゴミ分別の課題を定義。ChatGPT画像認識 × LINE公式アカウントで解決策をプロトタイプし、市民・自治体に発表。</p>
+                    <a class="timeline-link" href="./works/KAMAKURA.html">View Project →</a>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-year">2024.10</span>
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-category">Internship</p>
+                    <p class="timeline-title">New Make Labo インターン</p>
+                    <p class="timeline-desc">原宿のワッペン＆お直し屋さんでインターン開始。職人の手仕事・素材へのこだわりを間近で学ぶ。接客スタッフとしても従事。</p>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-year">2024.11</span>
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-category">Project</p>
+                    <p class="timeline-title">Community Loops × doyolab — JEANOME</p>
+                    <p class="timeline-desc">3本のデニムを解体・再構築し、NFCタグで「服の遺伝子」を可視化するアップサイクルプロダクトを開発。環境省・横浜市パネリストより高評価を獲得。</p>
+                    <a class="timeline-link" href="./works/community-loops.html">View Project →</a>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-year">2025.1</span>
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-category">Contest</p>
+                    <p class="timeline-title">XBP 学内ビジネスコンテスト — 和GARA</p>
+                    <p class="timeline-desc">和柄リメイクブランド「和GARA」の立ち上げをテーマに事業提案。事業計画書・損益計画・OEM生産コストまで含めた提案を発表。</p>
+                    <a class="timeline-link" href="./works/business-contest.html">View Project →</a>
+                </div>
+
+                <div class="timeline-item current">
+                    <span class="timeline-year">Now</span>
+                    <div class="timeline-dot"></div>
+                    <p class="timeline-category">Current</p>
+                    <p class="timeline-title">神奈川大学 3年次 — 継続中</p>
+                    <p class="timeline-desc">引き続きdoyolabでのプロジェクト活動・New Make Laboでの実務を継続。社会とデザインの交差点で、次の問いを探しています。</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===== SKILLS ===== -->
+        <section class="skills-section">
+            <h2 class="section-heading">Skills / Tools</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <p class="skill-category">Design</p>
+                    <p class="skill-list">Canva<br>Figma（基礎）<br>HTML / CSS</p>
+                </div>
+                <div class="skill-item">
+                    <p class="skill-category">Fabrication</p>
+                    <p class="skill-list">ミシン / 縫製<br>3Dプリンター（基礎）<br>NFC実装</p>
+                </div>
+                <div class="skill-item">
+                    <p class="skill-category">Tech</p>
+                    <p class="skill-list">ChatGPT / Gemini<br>LINE Messaging API<br>GitHub Pages</p>
+                </div>
+                <div class="skill-item">
+                    <p class="skill-category">Methodology</p>
+                    <p class="skill-list">デザイン思考<br>フィールドワーク<br>共起ネットワーク分析</p>
+                </div>
+                <div class="skill-item">
+                    <p class="skill-category">Business</p>
+                    <p class="skill-list">事業計画書作成<br>市場分析<br>プレゼンテーション</p>
+                </div>
+                <div class="skill-item">
+                    <p class="skill-category">Language</p>
+                    <p class="skill-list">日本語（母語）<br>英語（読み書き）</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer id="footer">
+        <div class="inner">
+            <p class="copyright">© 2025 Kiichi Hirayama / DOYOLAB. All Rights Reserved.</p>
+        </div>
+    </footer>
 
 </body>
-
 </html>
