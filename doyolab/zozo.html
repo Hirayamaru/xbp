@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZOZOらしさ — Kiichi Hirayama</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200;300;400&family=Noto+Sans+JP:wght@300;400&family=EB+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/zozo.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header id="header">
+    <a class="header-logo" href="https://hirayamaru.github.io/xbp/doyolab/index.html">doyolab / Kiichi Hirayama</a>
+    <span class="header-label">ZOZO Designer Entry 2027</span>
+  </header>
+
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div style="position: relative; z-index: 2;">
+      <p class="hero-eyebrow">What is ZOZO-rashisa ?</p>
+      <h1 class="hero-title">
+        形は違う。<br>
+        でも、<em>同じだけ</em><br>
+        存在していい。
+      </h1>
+      <p class="hero-sub">
+        丸・三角・四角。<br>
+        面積はまったく等しい。<br>
+        ZOZOのロゴが教えてくれた、<br>
+        Be unique. Be equal. の意味。
+      </p>
+      <div class="hero-scroll">
+        <span class="scroll-label">Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section id="philosophy">
+    <p class="section-label fadein">ZOZOらしさ、を定義する</p>
+    <div class="philosophy-grid fadein">
+      <h2 class="philosophy-heading">
+        「普通」の外側に、<br>
+        <em>ずっといた</em>会社。
+      </h2>
+      <div class="philosophy-body">
+        <p>
+          ZOZOSUITで体型を計測しようとした。<br>
+          ZOZOGLASSでメイクを試みた。<br>
+          宇宙に行こうとした前澤さんを、<br>
+          会社ごと笑って送り出した。
+        </p>
+        <p>
+          普通の会社なら止める。<br>
+          ZOZOは止めなかった。<br>
+          それが、ZOZOらしさだと思う。
+        </p>
+        <p>
+          失敗を「失敗」と呼ばず、<br>
+          挑戦の証として残しておける会社。<br>
+          <em>その空気が、好きだ。</em>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHAPES INTERACTIVE -->
+  <section id="shapes">
+    <div class="inner">
+      <div class="shapes-intro fadein">
+        <h2>面積は、<em>すべて等しい。</em></h2>
+        <p>
+          Be unique. Be equal.——ZOZOのコーポレートロゴを構成する<br>
+          丸・三角・四角は、形が違っても面積がまったく同じ。<br>
+          触れてみてください。
+        </p>
+      </div>
+      <div class="shapes-playground" id="playground">
+        <div class="shape-tooltip" id="tooltip"></div>
+        <div class="shape-area-label">All areas are equal.</div>
+      </div>
+      <p class="shapes-caption">— CLICK OR HOVER TO INTERACT —</p>
+    </div>
+  </section>
+
+  <!-- JEANOME BRIDGE -->
+  <section id="jeanome">
+    <p class="section-label fadein">私とZOZOをつなぐもの</p>
+    <div class="jeanome-grid fadein">
+      <div class="jeanome-visual">
+        <canvas id="dna-canvas"></canvas>
+      </div>
+      <div class="jeanome-text">
+        <h2>
+          ZOZOで買った服が、<br>
+          <em>消えかけた。</em><br>
+          そして復活した。
+        </h2>
+        <p>
+          かつてZOZOTOWNで買ったデニムパンツに飽きた。
+          形が気分じゃない、というだけの理由で。
+        </p>
+        <p>
+          服飾学生の友人に頼み、デニムを開いて柄布を挟む。
+          一緒に布を選び、形を話し合い——数週間後、
+          生まれ変わった一本と対面した。
+        </p>
+        <p>
+          そのとき気づいた。<em>服には遺伝子がある。</em>
+          前の持ち主の記憶も、新しい布の個性も、
+          すべて引き継いで、次の一着になる。
+        </p>
+        <p>
+          この体験がJEANOMEというプロジェクトになり、
+          そしてZOZOを志望する理由になった。
+          ファッションと人の間にある感情体験を、
+          UIで設計できる場所はここしかない。
+        </p>
+        <a class="project-link" href="https://hirayamaru.github.io/xbp/doyolab/works/community-loops.html" target="_blank" rel="noopener">
+          View JEANOME Project →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATEMENT -->
+  <section id="statement">
+    <p class="statement-label">Entry Statement</p>
+    <blockquote class="statement-quote fadein">
+      「服を捨てる寸前が、<br>
+      <em>一番おもしろくなれる。</em>」
+    </blockquote>
+    <p class="statement-sub fadein">
+      ZOZOTOWNで買った服が、ZOZOのUIで第二の命を得られたら。<br>
+      その橋渡しを、デザインでやりたい。<br><br>
+      — Kiichi Hirayama, 2027 Designer Entry
+    </p>
+  </section>
+
+  <!-- PROFILE STRIP -->
+  <div id="profile-strip">
+    <div>
+      <p class="profile-name">平山 喜一 / Kiichi Hirayama</p>
+    </div>
+    <div class="profile-meta">
+      神奈川大学 経営学部 / 道用ゼミ<br>
+      Sustainable Fashion / UI Design / Making
+    </div>
+    <a class="portfolio-link" href="https://hirayamaru.github.io/xbp/doyolab/index.html" target="_blank">
+      Portfolio →
+    </a>
+  </div>
+
+  <footer>
+    <p>© 2027 Kiichi Hirayama — ZOZO Designer Entry Submission</p>
+  </footer>
+
+  <script src="./js/zozo.js"></script>
+</body>
+</html>
