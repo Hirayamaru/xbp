@@ -102,6 +102,55 @@
     margin-bottom: 30px;
 }
 
+/* ===== テキスト強調 ===== */
+
+/* キーワード強調：イタリック＋アクセントカラー */
+.project-section em,
+.project-section .accent {
+    font-style: italic;
+    color: #1a1a1a;
+    font-weight: 400;
+    border-bottom: 1px solid #c8c4be;
+    padding-bottom: 1px;
+}
+
+/* 数字・固有名詞：太字 */
+.project-section strong {
+    font-weight: 600;
+    color: #1a1a1a;
+}
+
+/* 大きく引用したいフレーズ */
+.project-section .pullquote {
+    font-size: 1.25rem;
+    font-weight: 300;
+    line-height: 1.9;
+    letter-spacing: 0.06em;
+    border-left: 2px solid #1a1a1a;
+    padding: 4px 0 4px 1.4em;
+    margin: 40px 0;
+    color: #1a1a1a;
+}
+
+/* STEPタグ */
+.process-tag {
+    font-family: var(--font-sans, sans-serif);
+    font-size: 0.7rem;
+    letter-spacing: 0.35em;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    border-left: 2px solid #1a1a1a;
+    padding-left: 0.8em;
+}
+
+/* セクション見出しをもう少し大きく */
+.design-process h2 {
+    font-size: 1.45rem;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+}
+
 /* 4. 画像レイアウト */
 .standard-image {
     width: 100%;
