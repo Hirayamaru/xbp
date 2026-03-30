@@ -920,3 +920,61 @@
 .nfc-site-preview:hover .nfc-arrow {
     transform: translateX(6px);
 }
+/* ============================================
+   Profile Strip + Back to Works
+   ============================================ */
+
+#project-profile-strip {
+    border-top: 1px solid var(--color-rule, #e8e5e0);
+    margin-top: 80px;
+    padding: 60px 0 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+}
+
+#project-profile-strip .profile-name {
+    font-family: var(--font-serif, serif);
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--color-ink, #1a1a1a);
+    margin-bottom: 6px;
+}
+
+#project-profile-strip .profile-meta {
+    font-family: var(--font-sans, sans-serif);
+    font-size: 10px;
+    color: var(--color-muted, #999);
+    letter-spacing: 0.22em;
+    line-height: 2.2;
+}
+
+#project-profile-strip .back-to-works {
+    flex-shrink: 0;
+    font-family: var(--font-sans, sans-serif);
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--color-muted, #999);
+    border-bottom: 1px solid var(--color-rule, #e8e5e0);
+    padding-bottom: 4px;
+    text-decoration: none;
+    transition: color 0.25s ease, border-color 0.25s ease;
+    white-space: nowrap;
+}
+
+#project-profile-strip .back-to-works:hover {
+    color: var(--color-ink, #1a1a1a);
+    border-color: var(--color-ink, #1a1a1a);
+}
+
+@media (max-width: 768px) {
+    #project-profile-strip {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 28px;
+        padding: 48px 0 60px;
+    }
+}
