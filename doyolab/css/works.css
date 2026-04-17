@@ -153,6 +153,26 @@
     color: #666;
 }
 
+/* 役割バッジ */
+.role-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #444;
+    background: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 3px 10px;
+    margin-bottom: 12px;
+}
+
+.role-badge--solo {
+    color: #1a1a1a;
+    background: #e8e0d5;
+    border-color: #c8b89a;
+}
+
 /* レスポンシブ */
 @media (max-width: 768px) {
     #worksBanner {
